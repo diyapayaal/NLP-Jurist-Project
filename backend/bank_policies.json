@@ -1,0 +1,25 @@
+{
+  "policies": [
+    {
+      "policy_id": "BP001",
+      "name": "KYC Compliance Policy",
+      "description": "Know Your Customer verification procedures",
+      "last_updated": "2024-01-15",
+      "departments": ["Compliance", "Operations"]
+    },
+    {
+      "policy_id": "BP002",
+      "name": "Data Security Policy",
+      "description": "Information security and data protection standards",
+      "last_updated": "2024-06-01",
+      "departments": ["IT", "Compliance"]
+    },
+    {
+      "policy_id": "BP003",
+      "name": "Risk Management Policy",
+      "description": "Enterprise risk management framework",
+      "last_updated": "2023-12-20",
+      "departments": ["Risk", "Finance"]
+    }
+  ]
+}

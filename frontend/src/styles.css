@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.75rem;
+
+  --background: #0b1020;
+  --foreground: #f8fafc;
+
+  --card: rgba(20, 25, 45, 0.75);
+  --card-foreground: #f8fafc;
+
+  --primary: #4f46e5;
+  --secondary: #06b6d4;
+  --accent: #67e8f9;
+
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+
+  --border: rgba(255, 255, 255, 0.08);
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+
+  --gradient-primary: linear-gradient(135deg, #4f46e5, #06b6d4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(79, 70, 229, 0.25), transparent 30%),
+    radial-gradient(circle at top right, rgba(6, 182, 212, 0.2), transparent 30%),
+    #0b1020;
+
+  color: var(--foreground);
+  font-family: Inter, sans-serif;
+}
+
+/* Glass Cards */
+.glass {
+  background: rgba(17, 25, 40, 0.72);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+.glass-strong {
+  background: rgba(17, 25, 40, 0.9);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(22px);
+}
+
+/* Glow */
+.glow-primary {
+  box-shadow: 0 0 35px rgba(79, 70, 229, 0.45);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.35);
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #818cf8, #67e8f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0px rgba(6,182,212,0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(6,182,212,0.8);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes floatSlow {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}

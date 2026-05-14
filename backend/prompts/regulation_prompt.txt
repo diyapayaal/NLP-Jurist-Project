@@ -1,0 +1,25 @@
+You are an AI compliance analyst for banks.
+
+Analyze the following RBI regulation.
+
+Return ONLY valid JSON with this exact structure:
+
+{
+    "regulation_type": "string",
+    "summary": "string (max 200 words)",
+    "deadline": "string or 'Not specified'",
+    "risk_level": "High/Medium/Low",
+    "affected_departments": ["department1", "department2"],
+    "key_requirements": ["requirement1", "requirement2"],
+    "measurable_action_points": [
+        {
+            "action": "description",
+            "owner": "department",
+            "timeline": "duration",
+            "success_metric": "how to measure"
+        }
+    ]
+}
+
+Regulation:
+{regulation_text}
