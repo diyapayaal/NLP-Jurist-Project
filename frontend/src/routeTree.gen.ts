@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ReportsHistoryRouteImport } from './routes/reports-history'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as PolicyLibraryRouteImport } from './routes/policy-library'
 import { Route as AnalyzeRouteImport } from './routes/analyze'
@@ -19,6 +20,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const SettingsRoute = SettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsHistoryRoute = ReportsHistoryRouteImport.update({
+  id: '/reports-history',
+  path: '/reports-history',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReportsRoute = ReportsRouteImport.update({
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/analyze': typeof AnalyzeRoute
   '/policy-library': typeof PolicyLibraryRoute
   '/reports': typeof ReportsRoute
+  '/reports-history': typeof ReportsHistoryRoute
   '/settings': typeof SettingsRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/analyze': typeof AnalyzeRoute
   '/policy-library': typeof PolicyLibraryRoute
   '/reports': typeof ReportsRoute
+  '/reports-history': typeof ReportsHistoryRoute
   '/settings': typeof SettingsRoute
 }
 export interface FileRoutesById {
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/analyze': typeof AnalyzeRoute
   '/policy-library': typeof PolicyLibraryRoute
   '/reports': typeof ReportsRoute
+  '/reports-history': typeof ReportsHistoryRoute
   '/settings': typeof SettingsRoute
 }
 export interface FileRouteTypes {
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/analyze'
     | '/policy-library'
     | '/reports'
+    | '/reports-history'
     | '/settings'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/analyze'
     | '/policy-library'
     | '/reports'
+    | '/reports-history'
     | '/settings'
   id:
     | '__root__'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/analyze'
     | '/policy-library'
     | '/reports'
+    | '/reports-history'
     | '/settings'
   fileRoutesById: FileRoutesById
 }
@@ -105,6 +117,7 @@ export interface RootRouteChildren {
   AnalyzeRoute: typeof AnalyzeRoute
   PolicyLibraryRoute: typeof PolicyLibraryRoute
   ReportsRoute: typeof ReportsRoute
+  ReportsHistoryRoute: typeof ReportsHistoryRoute
   SettingsRoute: typeof SettingsRoute
 }
 
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/settings'
       fullPath: '/settings'
       preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports-history': {
+      id: '/reports-history'
+      path: '/reports-history'
+      fullPath: '/reports-history'
+      preLoaderRoute: typeof ReportsHistoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reports': {
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   AnalyzeRoute: AnalyzeRoute,
   PolicyLibraryRoute: PolicyLibraryRoute,
   ReportsRoute: ReportsRoute,
+  ReportsHistoryRoute: ReportsHistoryRoute,
   SettingsRoute: SettingsRoute,
 }
 export const routeTree = rootRouteImport

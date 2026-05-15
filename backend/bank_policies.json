@@ -2,24 +2,423 @@
   "policies": [
     {
       "policy_id": "BP001",
-      "name": "KYC Compliance Policy",
-      "description": "Know Your Customer verification procedures",
-      "last_updated": "2024-01-15",
-      "departments": ["Compliance", "Operations"]
+      "name": "Know Your Customer (KYC) Compliance Policy",
+      "description": "Comprehensive KYC procedures per RBI Master Direction on KYC 2016, including customer identification, address verification through Aadhaar/PAN, occupational status verification, beneficial ownership documentation, and periodic KYC refresh every 2 years for retail and annually for HUFFs and partnerships. Includes enhanced due diligence for PEPs and high-risk customers.",
+      "last_updated": "2026-05-15",
+      "departments": ["Compliance", "Operations", "Retail Banking"]
     },
     {
       "policy_id": "BP002",
-      "name": "Data Security Policy",
-      "description": "Information security and data protection standards",
-      "last_updated": "2024-06-01",
-      "departments": ["IT", "Compliance"]
+      "name": "Anti-Money Laundering (AML) Policy",
+      "description": "Mechanisms to prevent money laundering per PMLA 2002 and RBI AML guidelines. Includes customer risk profiling, transaction monitoring, suspicious activity reporting to FIU-IND, cash transaction reporting, cross-border transaction monitoring, and mandatory record keeping for 5 years.",
+      "last_updated": "2026-05-14",
+      "departments": ["Compliance", "Risk", "Legal"]
     },
     {
       "policy_id": "BP003",
-      "name": "Risk Management Policy",
-      "description": "Enterprise risk management framework",
-      "last_updated": "2023-12-20",
-      "departments": ["Risk", "Finance"]
+      "name": "Cybersecurity and Information Security Policy",
+      "description": "Comprehensive cybersecurity framework per RBI Cyber Security Framework 2021. Includes encryption standards (AES-256), secure data centers, endpoint protection, regular vulnerability assessments, penetration testing, network segmentation, firewall controls, and intrusion detection systems.",
+      "last_updated": "2026-05-10",
+      "departments": ["IT Security", "IT Operations", "Compliance"]
+    },
+    {
+      "policy_id": "BP004",
+      "name": "Multi-Factor Authentication (MFA) Policy",
+      "description": "Mandatory MFA enforcement per RBI guidelines for all banking systems. Includes OTP-based authentication for digital banking, TOTP authenticators for employee access, hardware security keys for admin accounts, and layered security for sensitive operations.",
+      "last_updated": "2026-04-20",
+      "departments": ["IT Security", "Digital Banking"]
+    },
+    {
+      "policy_id": "BP005",
+      "name": "Password and Credential Management Policy",
+      "description": "Strong password standards with minimum 12 characters, complexity requirements, 90-day expiry, 5-password history enforcement, account lockout after 5 failed attempts, and prohibition of credential sharing. Includes privileged account management and secrets vault implementation.",
+      "last_updated": "2026-04-15",
+      "departments": ["IT Security", "HR", "Compliance"]
+    },
+    {
+      "policy_id": "BP006",
+      "name": "Audit Logging and Monitoring Policy",
+      "description": "Centralized audit log collection, SIEM integration, real-time security monitoring, suspicious activity detection, log retention for 7 years, log integrity verification, and incident alerting per RBI guidelines. Includes forensic readiness and log chain-of-custody procedures.",
+      "last_updated": "2026-05-01",
+      "departments": ["IT Security", "Compliance", "Audit"]
+    },
+    {
+      "policy_id": "BP007",
+      "name": "Third-Party Vendor and Outsourcing Policy",
+      "description": "Comprehensive vendor risk assessment framework per RBI Master Direction on Outsourcing. Includes due diligence procedures, cybersecurity audits, service level agreements, contract clauses for regulatory access, business continuity planning, and periodic vendor performance reviews.",
+      "last_updated": "2026-04-25",
+      "departments": ["Procurement", "Compliance", "IT", "Risk"]
+    },
+    {
+      "policy_id": "BP008",
+      "name": "Cybersecurity Incident Response Policy",
+      "description": "Incident detection, reporting, containment, eradication, and recovery procedures. Includes incident classification, escalation matrix, forensic investigation protocols, RBI reporting timelines (within 7 days for critical incidents), customer notification procedures, and business continuity activation.",
+      "last_updated": "2026-05-05",
+      "departments": ["IT Security", "Compliance", "Legal"]
+    },
+    {
+      "policy_id": "BP009",
+      "name": "Access Control and Privilege Management Policy",
+      "description": "Role-based access control (RBAC) implementation, principle of least privilege, privileged account management (PAM), periodic access reviews (quarterly), user provisioning/deprovisioning procedures, emergency access controls, and audit of privileged operations.",
+      "last_updated": "2026-04-18",
+      "departments": ["IT Security", "IT Operations", "HR"]
+    },
+    {
+      "policy_id": "BP010",
+      "name": "Regulatory Compliance and Reporting Policy",
+      "description": "Guidelines for RBI regulatory submissions including priority sector lending reports, statutory returns, compliance certifications, and audit reports. Includes reporting timelines per RBI regulations, accuracy verification procedures, and regulatory correspondence management.",
+      "last_updated": "2026-05-08",
+      "departments": ["Compliance", "Finance", "Audit"]
+    },
+    {
+      "policy_id": "BP011",
+      "name": "Branch Expansion Strategy and Governance Policy",
+      "description": "Framework for branch expansion per RBI guidelines including district-wise branch allocation limits, mandatory RBI approvals, branch prioritization criteria, service area guidelines, SLBC coordination, and urban/rural branch ratios per RBI mandates.",
+      "last_updated": "2026-03-15",
+      "departments": ["Strategy", "Operations", "Compliance"]
+    },
+    {
+      "policy_id": "BP012",
+      "name": "ATM and Banking Outlet Governance Policy",
+      "description": "ATM deployment strategy, rural ATM expansion, on-site and off-site ATM management, ATM security standards, surveillance requirements, cash management procedures, ATM uptime SLAs, and ATM-related complaint resolution per RBI guidelines.",
+      "last_updated": "2026-05-12",
+      "departments": ["Operations", "IT", "Retail Banking", "Security"]
+    },
+    {
+      "policy_id": "BP013",
+      "name": "Fraud Detection and Prevention Policy",
+      "description": "Comprehensive fraud monitoring framework including transaction anomaly detection, fraud pattern recognition, customer behavior analytics, suspicious transaction flagging, fraud investigation procedures, recovery actions, and mandatory reporting to RBI for frauds exceeding Rs. 1 lakh.",
+      "last_updated": "2026-04-22",
+      "departments": ["Compliance", "Risk", "Retail Banking"]
+    },
+    {
+      "policy_id": "BP014",
+      "name": "Data Privacy and Personal Information Protection Policy",
+      "description": "Data protection framework per Information Technology Act 2000 and RBI guidelines. Includes customer data classification, secure handling procedures, consent management, data subject rights (access, deletion, correction), data retention policies, and third-party data sharing controls.",
+      "last_updated": "2026-05-06",
+      "departments": ["IT Security", "Compliance", "Legal"]
+    },
+    {
+      "policy_id": "BP015",
+      "name": "Disaster Recovery and Business Continuity Policy",
+      "description": "BC/DR planning per RBI expectations, including recovery time objective (RTO) of 4 hours, recovery point objective (RPO) of 1 hour, alternate data centers, backup site activation procedures, testing schedules (quarterly drills), and crisis communication protocols.",
+      "last_updated": "2026-04-30",
+      "departments": ["IT Operations", "Risk Management", "Compliance"]
+    },
+    {
+      "policy_id": "BP016",
+      "name": "Digital Banking Security Policy",
+      "description": "Security controls for internet banking, mobile banking, USSD services, and payment gateways. Includes end-to-end encryption, SSL/TLS standards, tokenization, secure API standards, device fingerprinting, transaction verification, and fraud detection algorithms.",
+      "last_updated": "2026-05-09",
+      "departments": ["Digital Banking", "IT Security", "Product"]
+    },
+    {
+      "policy_id": "BP017",
+      "name": "Cloud Security and SaaS Governance Policy",
+      "description": "Framework for cloud infrastructure usage per RBI Cloud guidelines. Includes cloud provider assessment, data residency requirements (India-based servers), encryption in transit and at rest, backup procedures, service level agreements, and cloud vendor audit rights.",
+      "last_updated": "2026-05-03",
+      "departments": ["IT Security", "IT Operations", "Compliance"]
+    },
+    {
+      "policy_id": "BP018",
+      "name": "Grievance Redressal and Customer Complaint Policy",
+      "description": "Systematic grievance handling framework per RBI guidelines requiring resolution within 30 days for general complaints, 90 days for fraud complaints. Includes complaint logging, escalation matrix, compensation guidelines, appeal procedures, and quarterly reporting to RBI.",
+      "last_updated": "2026-04-28",
+      "departments": ["Retail Banking", "Compliance", "Legal"]
+    },
+    {
+      "policy_id": "BP019",
+      "name": "Risk Management Framework",
+      "description": "Comprehensive enterprise risk management covering credit risk, market risk, operational risk, liquidity risk, and reputational risk. Includes risk identification, assessment, mitigation strategies, risk monitoring, stress testing, and quarterly risk committee reviews.",
+      "last_updated": "2026-05-11",
+      "departments": ["Risk Management", "Finance", "Compliance"]
+    },
+    {
+      "policy_id": "BP020",
+      "name": "Credit Risk Management Policy",
+      "description": "Framework for credit decisions including customer creditworthiness assessment, collateral valuation, exposure limits, NPA classification per RBI guidelines, provisioning requirements, and credit monitoring procedures. Includes stress testing and concentration risk management.",
+      "last_updated": "2026-04-26",
+      "departments": ["Credit", "Risk Management", "Compliance"]
+    },
+    {
+      "policy_id": "BP021",
+      "name": "Insider Threat Management Policy",
+      "description": "Controls to prevent insider threats including employee background checks, periodic re-screening, access monitoring, suspicious activity detection, job rotation for sensitive roles, and confidentiality agreements. Includes whistleblower protection mechanisms.",
+      "last_updated": "2026-05-07",
+      "departments": ["HR", "IT Security", "Compliance", "Internal Audit"]
+    },
+    {
+      "policy_id": "BP022",
+      "name": "HR Governance and Code of Conduct Policy",
+      "description": "Employee conduct standards, conflict of interest policies, gifts and gratuities guidelines, anti-harassment policies, mandatory compliance training, performance appraisals, and disciplinary procedures. Includes specialized policies for sensitive banking roles.",
+      "last_updated": "2026-04-19",
+      "departments": ["HR", "Compliance", "Legal"]
+    },
+    {
+      "policy_id": "BP023",
+      "name": "Internal Audit and Compliance Review Policy",
+      "description": "Internal audit scope, audit committee oversight, audit plan development, compliance testing procedures, audit report escalation, management action tracking, and external audit coordination per Auditors Act requirements.",
+      "last_updated": "2026-05-02",
+      "departments": ["Internal Audit", "Compliance", "Risk"]
+    },
+    {
+      "policy_id": "BP024",
+      "name": "Treasury and Funds Management Policy",
+      "description": "Guidelines for treasury operations including liquidity management, investment policies, ALM framework, derivative usage, counterparty risk limits, and trading desk controls per RBI Master Directions on Treasury operations.",
+      "last_updated": "2026-04-24",
+      "departments": ["Treasury", "Finance", "Risk"]
+    },
+    {
+      "policy_id": "BP025",
+      "name": "Liquidity Risk Management Policy",
+      "description": "Liquidity coverage ratio (LCR) and net stable funding ratio (NSFR) frameworks per Basel III. Includes liquidity stress testing, funding strategy, emergency liquidity access procedures, and contingency funding plans.",
+      "last_updated": "2026-05-04",
+      "departments": ["Treasury", "Risk Management", "Finance"]
+    },
+    {
+      "policy_id": "BP026",
+      "name": "Operational Resilience Policy",
+      "description": "Framework ensuring bank operational continuity per RBI expectations. Includes critical function identification, impact tolerance indicators, resilience testing, third-party resilience assessment, and recovery procedures.",
+      "last_updated": "2026-04-27",
+      "departments": ["Operations", "Risk", "IT"]
+    },
+    {
+      "policy_id": "BP027",
+      "name": "Regulatory Submission and Documentation Policy",
+      "description": "Standards for RBI submissions ensuring accuracy, timeliness, and completeness. Includes document retention procedures, record-keeping guidelines, regulatory filing checklists, and compliance certification processes.",
+      "last_updated": "2026-05-01",
+      "departments": ["Compliance", "Legal", "Finance"]
+    },
+    {
+      "policy_id": "BP028",
+      "name": "Board and Governance Approvals Policy",
+      "description": "Board approval procedures for strategic initiatives, regulatory matters, policy updates, and significant transactions. Includes conflict of interest procedures, board-level risk reviews, and governance documentation.",
+      "last_updated": "2026-04-21",
+      "departments": ["Board Secretariat", "Compliance"]
+    },
+    {
+      "policy_id": "BP029",
+      "name": "Third-Party Payment Gateway Security Policy",
+      "description": "Security standards for payment gateways and merchant processing. Includes PCI-DSS compliance, encryption standards, fraud detection integration, settlement procedures, and chargeback management.",
+      "last_updated": "2026-05-08",
+      "departments": ["Digital Banking", "IT Security", "Risk"]
+    },
+    {
+      "policy_id": "BP030",
+      "name": "Customer Due Diligence (CDD) Enhancement Policy",
+      "description": "Enhanced due diligence procedures for high-risk customers, PEPs, and non-resident customers. Includes source of funds verification, beneficial ownership documentation, periodic monitoring, and transaction pattern analysis.",
+      "last_updated": "2026-04-25",
+      "departments": ["Compliance", "Operations"]
+    },
+    {
+      "policy_id": "BP031",
+      "name": "Trade Finance Compliance Policy",
+      "description": "Compliance framework for international banking services including export credits, LC issuance, SWIFT communications, and trade documentation verification. Includes sanctions screening per government guidelines.",
+      "last_updated": "2026-05-06",
+      "departments": ["Trade Finance", "Compliance", "Legal"]
+    },
+    {
+      "policy_id": "BP032",
+      "name": "Environmental and Social Risk Policy",
+      "description": "Assessment framework for environmental and social risks in lending decisions. Includes project categorization, impact assessment procedures, and compliance with environmental regulations.",
+      "last_updated": "2026-04-28",
+      "departments": ["Risk Management", "Credit", "Compliance"]
+    },
+    {
+      "policy_id": "BP033",
+      "name": "Customer Information Protection Policy",
+      "description": "Safeguards for sensitive customer information including SSN (Aadhaar), financial data, health information, and contact details. Includes access controls, storage encryption, secure transmission, and breach notification procedures.",
+      "last_updated": "2026-05-09",
+      "departments": ["IT Security", "Compliance", "Retail Banking"]
+    },
+    {
+      "policy_id": "BP034",
+      "name": "Information Classification and Handling Policy",
+      "description": "Classification scheme for bank information (Public, Internal, Confidential, Secret) with corresponding handling procedures, access controls, retention periods, and destruction requirements.",
+      "last_updated": "2026-04-23",
+      "departments": ["IT Security", "Compliance"]
+    },
+    {
+      "policy_id": "BP035",
+      "name": "Patch Management and Systems Hardening Policy",
+      "description": "Procedures for timely security patch application, vulnerability remediation, system hardening standards, change management controls, and testing protocols before production deployment.",
+      "last_updated": "2026-05-02",
+      "departments": ["IT Operations", "IT Security"]
+    },
+    {
+      "policy_id": "BP036",
+      "name": "Network Security and Firewall Policy",
+      "description": "Network architecture standards, firewall configuration standards, network segmentation requirements, DMZ policies, intrusion prevention system (IPS) deployment, and DDoS mitigation strategies.",
+      "last_updated": "2026-04-30",
+      "departments": ["IT Security", "IT Operations"]
+    },
+    {
+      "policy_id": "BP037",
+      "name": "Email Security and Communications Policy",
+      "description": "Email encryption standards, attachment scanning procedures, phishing detection mechanisms, data loss prevention (DLP) controls, email retention policies, and external communication guidelines.",
+      "last_updated": "2026-05-05",
+      "departments": ["IT Security", "Compliance"]
+    },
+    {
+      "policy_id": "BP038",
+      "name": "Loan Origination and Underwriting Policy",
+      "description": "Standardized procedures for loan applications including creditworthiness assessment, collateral evaluation, documentation requirements, pricing guidelines, approval thresholds by loan type, and disbursement controls.",
+      "last_updated": "2026-04-26",
+      "departments": ["Credit", "Retail Banking", "Risk"]
+    },
+    {
+      "policy_id": "BP039",
+      "name": "Non-Performing Asset (NPA) Management Policy",
+      "description": "Procedures for NPA classification per RBI guidelines, provisioning calculations, restructuring options, recovery procedures, write-off policies, and quarterly NPA monitoring. Includes classification of stressed assets.",
+      "last_updated": "2026-05-07",
+      "departments": ["Credit", "Risk", "Compliance"]
+    },
+    {
+      "policy_id": "BP040",
+      "name": "Collateral Management and Valuation Policy",
+      "description": "Standards for collateral acceptance, valuation procedures, periodic revaluation (annual for immovable, quarterly for others), haircut policies, lien documentation, and collateral monitoring.",
+      "last_updated": "2026-04-22",
+      "departments": ["Credit", "Risk", "Operations"]
+    },
+    {
+      "policy_id": "BP041",
+      "name": "Sanctions and Export Controls Compliance Policy",
+      "description": "Framework for compliance with government sanctions lists, export controls, and restricted parties screening. Includes OFAC compliance, UNSC list checking, continuous monitoring, and transaction blocking procedures.",
+      "last_updated": "2026-05-10",
+      "departments": ["Compliance", "Trade Finance", "Legal"]
+    },
+    {
+      "policy_id": "BP042",
+      "name": "Mobile Banking and Payments Security Policy",
+      "description": "Security standards for mobile app development, deployment, and maintenance. Includes app store compliance, vulnerability scanning, certificate pinning, session management, and secure API design.",
+      "last_updated": "2026-04-29",
+      "departments": ["Digital Banking", "IT Security", "Product"]
+    },
+    {
+      "policy_id": "BP043",
+      "name": "Biometric Authentication and Privacy Policy",
+      "description": "Standards for biometric data collection (fingerprint, face recognition), secure storage, encryption, usage limitations, and GDPR-like privacy compliance for biometric information.",
+      "last_updated": "2026-05-08",
+      "departments": ["Digital Banking", "IT Security", "Compliance"]
+    },
+    {
+      "policy_id": "BP044",
+      "name": "Vendor Security Assessment and Monitoring Policy",
+      "description": "Framework for continuous vendor security monitoring including annual security audits, vulnerability scanning, threat intelligence integration, and remediation tracking.",
+      "last_updated": "2026-04-24",
+      "departments": ["Procurement", "IT Security", "Risk"]
+    },
+    {
+      "policy_id": "BP045",
+      "name": "Technology Change Management Policy",
+      "description": "Formal change management procedures including impact analysis, testing requirements, deployment windows, rollback procedures, and stakeholder communication protocols.",
+      "last_updated": "2026-05-03",
+      "departments": ["IT Operations", "IT Security", "Risk"]
+    },
+    {
+      "policy_id": "BP046",
+      "name": "Service Level Agreement (SLA) Policy",
+      "description": "SLA definition standards for critical services, performance metrics, escalation procedures, remedies for SLA breaches, and quarterly SLA performance reviews.",
+      "last_updated": "2026-04-27",
+      "departments": ["Operations", "IT", "Procurement"]
+    },
+    {
+      "policy_id": "BP047",
+      "name": "Capacity Planning and Performance Monitoring Policy",
+      "description": "Framework for IT infrastructure capacity planning, performance monitoring, bottleneck identification, upgrade procedures, and resource optimization.",
+      "last_updated": "2026-05-06",
+      "departments": ["IT Operations", "IT Security"]
+    },
+    {
+      "policy_id": "BP048",
+      "name": "Crisis Communication and Public Statement Policy",
+      "description": "Procedures for communicating during crises, media interaction guidelines, regulatory communication protocols, customer communication templates, and stakeholder notification procedures.",
+      "last_updated": "2026-04-25",
+      "departments": ["Communications", "Risk", "Legal"]
+    },
+    {
+      "policy_id": "BP049",
+      "name": "Whistleblower Protection and Reporting Policy",
+      "description": "Safe channel for reporting unethical behavior, fraud, or policy violations. Includes multiple reporting channels (online, phone, in-person), confidentiality protections, non-retaliation guarantees, and investigation procedures.",
+      "last_updated": "2026-05-09",
+      "departments": ["HR", "Compliance", "Legal"]
+    },
+    {
+      "policy_id": "BP050",
+      "name": "Conflict of Interest and Related Party Transactions Policy",
+      "description": "Guidelines for identifying and managing conflicts of interest, related party transaction approvals, disclosure requirements, recusal procedures, and periodic attestations.",
+      "last_updated": "2026-04-20",
+      "departments": ["Compliance", "HR", "Legal"]
+    },
+    {
+      "policy_id": "BP051",
+      "name": "Vendor Contract and Service Agreement Policy",
+      "description": "Standard terms and conditions for vendor contracts including SLA specifications, data protection clauses, audit rights, confidentiality provisions, and regulatory compliance requirements.",
+      "last_updated": "2026-05-04",
+      "departments": ["Procurement", "Legal", "Compliance"]
+    },
+    {
+      "policy_id": "BP052",
+      "name": "Financial Reporting and Consolidated Accounts Policy",
+      "description": "Standards for financial statement preparation, reconciliation procedures, audit trail maintenance, quarterly closing procedures, and compliance with accounting standards (Ind-AS).",
+      "last_updated": "2026-04-28",
+      "departments": ["Finance", "Audit", "Compliance"]
+    },
+    {
+      "policy_id": "BP053",
+      "name": "Foreign Exchange (Forex) Compliance Policy",
+      "description": "Compliance framework for forex operations including transaction documentation, FEMA compliance, rupee conversion procedures, remittance monitoring, and transaction reporting.",
+      "last_updated": "2026-05-07",
+      "departments": ["Treasury", "Compliance", "Trade Finance"]
+    },
+    {
+      "policy_id": "BP054",
+      "name": "Asset-Liability Management (ALM) Policy",
+      "description": "Framework for managing interest rate risk and liquidity mismatches. Includes scenario analysis, gap analysis, stress testing, investment strategy, and liability management procedures.",
+      "last_updated": "2026-04-23",
+      "departments": ["Treasury", "Finance", "Risk"]
+    },
+    {
+      "policy_id": "BP055",
+      "name": "Consumer Protection and Fair Lending Policy",
+      "description": "Fair lending practices ensuring non-discrimination in loan decisions. Includes pricing standards, marketing practices, disclosure requirements, and complaint resolution for fair lending issues.",
+      "last_updated": "2026-05-08",
+      "departments": ["Retail Banking", "Compliance", "Legal"]
+    },
+    {
+      "policy_id": "BP056",
+      "name": "Business Continuity Planning and Disaster Recovery Testing Policy",
+      "description": "Mandatory quarterly BC/DR testing procedures, test execution protocols, recovery time measurement, gap identification, and continuous improvement procedures for business continuity readiness.",
+      "last_updated": "2026-04-21",
+      "departments": ["IT Operations", "Risk", "Compliance"]
+    },
+    {
+      "policy_id": "BP057",
+      "name": "Third-Party Risk Monitoring and Review Policy",
+      "description": "Continuous monitoring of third-party vendors including financial health assessments, security posture reviews, compliance checks, and periodic on-site audits for critical vendors.",
+      "last_updated": "2026-05-05",
+      "departments": ["Risk", "Compliance", "Procurement"]
+    },
+    {
+      "policy_id": "BP058",
+      "name": "Customer Onboarding and Account Opening Policy",
+      "description": "Standard procedures for customer account opening including KYC verification, PEP screening, beneficial ownership identification, documentation collection, and account activation timelines.",
+      "last_updated": "2026-04-26",
+      "departments": ["Retail Banking", "Compliance", "Operations"]
+    },
+    {
+      "policy_id": "BP059",
+      "name": "Transaction Monitoring and Suspicious Activity Reporting Policy",
+      "description": "Automated and manual transaction monitoring procedures for anomalies, pattern-based detection algorithms, suspicious transaction flagging, CTR/STR filing procedures with FIU-IND, and reporting timelines.",
+      "last_updated": "2026-05-06",
+      "departments": ["Compliance", "Risk", "Operations"]
+    },
+    {
+      "policy_id": "BP060",
+      "name": "Continuous Compliance Training and Awareness Policy",
+      "description": "Mandatory annual compliance training for all employees covering AML/KYC, data protection, cybersecurity, code of conduct, and role-specific compliance requirements. Includes completion tracking and certification.",
+      "last_updated": "2026-05-11",
+      "departments": ["Compliance", "HR", "Training"]
     }
   ]
 }
