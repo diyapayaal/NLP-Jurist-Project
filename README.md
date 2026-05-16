@@ -1,116 +1,200 @@
-# NLP-Jurist: Compliance Gap Analyzer
+# NLP-Jurist — AI Compliance Gap Analyzer
 
-A retrieval-augmented generation (RAG) system that analyzes legal regulations and identifies compliance gaps against bank policies.
+NLP-Jurist is an AI-powered compliance intelligence platform designed for regulated financial institutions. It analyzes RBI regulations and legal circulars, compares them against existing bank policies, and identifies actionable compliance gaps using Large Language Models (LLMs).
 
-## Features
+The platform combines PDF extraction, AI-driven regulation understanding, policy comparison, and compliance analytics into a modern full-stack dashboard experience.
 
-✅ **PDF Regulation Extraction** - Extracts text from RBI regulations or legal documents  
-✅ **Regulation Analysis** - Parses regulations into structured components  
-✅ **Policy Comparison** - Compares against existing bank policies  
-✅ **Gap Identification** - Identifies compliance gaps with severity levels  
-✅ **Measurable Action Points** - Creates actionable compliance items with timelines  
-✅ **Structured Output** - Generates JSON reports for downstream processing  
+---
 
-## Setup
+# Key Features
 
-### 1. Install Dependencies
+✅ AI-powered regulation analysis using Gemini LLM
+✅ PDF extraction and regulatory text parsing
+✅ Automated compliance gap detection
+✅ Alignment score generation between regulations and bank policies
+✅ Severity-based risk categorization
+✅ Measurable remediation action points
+✅ FastAPI backend with modular architecture
+✅ Modern React + Tailwind enterprise dashboard
+✅ Structured JSON reporting system
+✅ Report history and compliance tracking
+
+---
+
+# Tech Stack
+
+## Backend
+
+* Python
+* FastAPI
+* pdfplumber
+* Gemini API
+* dotenv
+
+## Frontend
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* TanStack Router
+* Recharts
+
+---
+
+# System Workflow
+
+1. Upload RBI regulation PDF
+2. Extract regulation text
+3. Analyze regulation using Gemini AI
+4. Compare against existing bank policies
+5. Detect compliance gaps
+6. Generate alignment scores and remediation actions
+7. Visualize results in dashboard
+
+---
+
+# Project Structure
+
 ```bash
+NLP-Jurist/
+│
+├── backend/
+│   ├── api.py
+│   ├── utils/
+│   ├── prompts/
+│   ├── reports/
+│   └── data/
+│
+├── frontend/
+│   ├── src/
+│   ├── components/
+│   ├── routes/
+│   └── styles/
+│
+└── README.md
+```
+
+---
+
+# Installation & Setup
+
+## 1. Clone Repository
+
+```bash
+git clone <your-repository-link>
+cd NLP-Jurist
+```
+
+---
+
+## 2. Backend Setup
+
+```bash
+cd backend
 pip install -r requirements.txt
 ```
 
-### 2. Configure API Key
-Edit `.env` file and add your Gemini API key:
+Create `.env` file:
+
+```env
+GEMINI_API_KEY=your_api_key_here
 ```
-GEMINI_API_KEY=your_gemini_api_key_here
-```
 
-Get your API key from: https://aistudio.google.com/app/apikeys
+Get Gemini API Key from:
+https://aistudio.google.com/app/apikeys
 
-### 3. Prepare Input Files
-- **sample.pdf** - Your legal regulation PDF file
-- **bank_policies.json** - Your bank's existing policies (template provided)
+---
 
-## Usage
+## 3. Frontend Setup
 
 ```bash
-python main.py
+cd frontend
+npm install
+npm run dev
 ```
 
-## Output
+---
 
-The program generates:
-- **compliance_report_YYYYMMDD_HHMMSS.json** - Comprehensive analysis report with:
-  - Regulation analysis (type, summary, deadline, risk level, etc.)
-  - Gap analysis (identified gaps, alignment score, severity levels)
-  - Action items (measurable, owner-assigned compliance tasks)
+# Running the Application
 
-## Report Structure
+## Start Backend
+
+```bash
+uvicorn api:app --reload
+```
+
+## Start Frontend
+
+```bash
+npm run dev
+```
+
+---
+
+# API Endpoints
+
+| Method | Endpoint        | Description                     |
+| ------ | --------------- | ------------------------------- |
+| GET    | `/`             | Health check                    |
+| POST   | `/analyze`      | Upload & analyze regulation PDF |
+| GET    | `/reports`      | Fetch report history            |
+| GET    | `/reports/{id}` | Fetch detailed report           |
+
+---
+
+# Sample Output
 
 ```json
 {
-  "timestamp": "ISO timestamp",
-  "regulation_analysis": {
-    "regulation_type": "...",
-    "summary": "...",
-    "deadline": "...",
-    "risk_level": "High/Medium/Low",
-    "affected_departments": ["..."],
-    "measurable_action_points": [
-      {
-        "action": "...",
-        "owner": "department",
-        "timeline": "...",
-        "success_metric": "..."
-      }
-    ]
-  },
-  "gap_analysis": {
-    "gaps": [...],
-    "alignment_score": 0-100,
-    "total_gaps": number
-  }
+  "alignment_score": 78,
+  "overall_compliance_status": "partially_compliant",
+  "critical_gaps_count": 2,
+  "gaps": [
+    {
+      "severity": "high",
+      "description": "Missing AML reporting controls"
+    }
+  ]
 }
 ```
 
-## Error Handling
+---
 
-The program includes comprehensive error handling for:
-- Missing PDF files
-- Unreadable PDFs
-- API failures
-- Invalid policy files
-- JSON parsing errors
+# Current Capabilities
 
-## Architecture
+* RBI regulation analysis
+* Compliance gap detection
+* Policy alignment scoring
+* Risk categorization
+* Department impact mapping
+* Remediation prioritization
+* Dashboard-based compliance visualization
 
-1. **Extraction Phase** - Extracts raw text from PDF regulations
-2. **Analysis Phase** - Uses Gemini LLM to structure regulation data
-3. **Comparison Phase** - Loads existing bank policies
-4. **Gap Analysis Phase** - Identifies differences and compliance gaps
-5. **Reporting Phase** - Generates structured JSON report
+---
 
-## Security Notes
+# Future Enhancements
 
-⚠️ Never commit the `.env` file with actual API keys  
-⚠️ Use environment variables for sensitive data  
-⚠️ Keep `bank_policies.json` updated with current policies  
+* Vector database integration
+* RAG-based semantic policy retrieval
+* Multi-document analysis
+* Real-time compliance monitoring
+* AI-generated policy recommendations
+* Audit trail system
+* Cloud deployment
+* Role-based access control
 
-## Troubleshooting
+---
 
-**"GEMINI_API_KEY environment variable not set"**
-→ Make sure you've set the API key in the `.env` file
+# Security Notes
 
-**"No extractable text found in PDF"**
-→ Ensure the PDF contains selectable text (not scanned image)
+⚠️ Never commit `.env` files
+⚠️ Store API keys securely
+⚠️ Use sanitized policy datasets in public repositories
 
-**"Failed to parse LLM response as JSON"**
-→ The LLM may have returned malformed JSON; try with a different regulation
+---
 
-## Future Enhancements
+# License
 
-- [ ] Vector database for semantic policy search
-- [ ] Multi-document analysis
-- [ ] Timeline visualization
-- [ ] Compliance dashboard
-- [ ] Audit trail tracking
-- [ ] Automated policy updates
+This project is built for educational, research, and compliance automation purposes.
+
