@@ -34,13 +34,11 @@ export function UploadZone({ onAnalyze, isAnalyzing }: Props) {
   }, [onAnalyze]);
 
   return (
-    <div className="glass-strong rounded-2xl p-6">
-      <div className="flex items-baseline justify-between mb-4">
-        <div>
-          <h2 className="text-lg font-semibold text-foreground">Upload Regulation</h2>
-          <p className="text-xs text-muted-foreground">Drop an RBI PDF to begin compliance analysis</p>
-        </div>
-        <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">PDF · Max 25MB</span>
+    <div className="glass-strong rounded-2xl p-7 border border-border/40 space-y-6">
+      <div className="space-y-1">
+        <h2 className="text-lg font-bold text-foreground">Upload Regulation</h2>
+        <p className="text-xs text-muted-foreground/80 font-medium">Drop an RBI PDF to begin compliance analysis</p>
+        <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 mt-2.5 font-bold">PDF · Max 25MB</div>
       </div>
 
       {/* Upload Area */}
@@ -56,10 +54,10 @@ export function UploadZone({ onAnalyze, isAnalyzing }: Props) {
           handleFile(e.dataTransfer.files?.[0]);
         }}
         onClick={() => inputRef.current?.click()}
-        className={`relative cursor-pointer rounded-xl border-2 border-dashed transition-all p-10 text-center
+        className={`relative cursor-pointer rounded-2xl border-2 border-dashed transition-all duration-300 p-12 text-center
           ${dragOver 
-            ? "border-accent bg-accent/10 ring-glow shadow-lg" 
-            : "border-border hover:border-primary/60 hover:bg-primary/5"}`}
+            ? "border-accent bg-gradient-primary/20 ring-glow shadow-xl scale-[1.02]" 
+            : "border-border hover:border-primary/50 hover:bg-gradient-primary/10"}`}
       >
         <input
           ref={inputRef}
@@ -70,48 +68,48 @@ export function UploadZone({ onAnalyze, isAnalyzing }: Props) {
           disabled={isAnalyzing}
         />
         
-        <div className="flex flex-col items-center gap-3">
-          <div className="mx-auto size-16 rounded-2xl bg-gradient-primary grid place-items-center glow-primary animate-float">
-            <UploadCloud className="size-8 text-primary-foreground" />
+        <div className="flex flex-col items-center gap-4">
+          <div className="mx-auto size-20 rounded-2xl bg-gradient-primary grid place-items-center glow-primary animate-float shadow-lg">
+            <UploadCloud className="size-10 text-white" />
           </div>
           <div>
-            <div className="text-sm text-foreground font-medium">Drag & drop your PDF here</div>
-            <div className="text-xs text-muted-foreground mt-1">or click to browse files</div>
+            <div className="text-base font-bold text-foreground">Drag & drop your PDF</div>
+            <div className="text-xs text-muted-foreground/80 mt-1.5 font-medium">or click to browse files</div>
           </div>
         </div>
       </div>
 
       {/* File Preview & Progress */}
       {file && (
-        <div className="mt-4 glass-strong rounded-xl p-4 space-y-3 border border-accent/20">
-          <div className="flex items-center gap-3">
-            <div className="size-10 rounded-lg bg-gradient-primary/30 grid place-items-center flex-shrink-0">
-              <FileCheck2 className="size-5 text-accent" />
+        <div className="glass-strong rounded-2xl p-5 space-y-4 border border-accent/30 bg-accent/5">
+          <div className="flex items-center gap-4">
+            <div className="size-12 rounded-xl bg-gradient-primary/30 grid place-items-center flex-shrink-0 border border-accent/30">
+              <FileCheck2 className="size-6 text-accent" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between gap-2">
-                <div className="text-sm font-medium text-foreground truncate">{file.name}</div>
+                <div className="text-sm font-bold text-foreground truncate">{file.name}</div>
                 {!isAnalyzing && (
                   <button
                     onClick={() => {
                       setFile(null);
                       setProgress(0);
                     }}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors p-1 hover:bg-white/10 rounded"
                   >
                     <X className="size-4" />
                   </button>
                 )}
               </div>
-              <div className="text-xs text-muted-foreground mt-0.5">
+              <div className="text-xs text-muted-foreground/80 mt-1 font-medium">
                 {(file.size / 1024 / 1024).toFixed(2)} MB
               </div>
             </div>
           </div>
 
           {/* Progress Bar */}
-          <div className="space-y-1">
-            <div className="h-2 rounded-full bg-muted/40 overflow-hidden relative">
+          <div className="space-y-2">
+            <div className="h-2.5 rounded-full bg-muted/40 overflow-hidden relative">
               <div
                 className={`h-full ${
                   isAnalyzing 
@@ -123,12 +121,12 @@ export function UploadZone({ onAnalyze, isAnalyzing }: Props) {
               {progress < 100 && <div className="absolute inset-0 shimmer" />}
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-[11px] text-muted-foreground">
-                {progress < 100 ? `Uploading ${Math.round(progress)}%` : isAnalyzing ? "Analyzing..." : "Ready"}
+              <span className="text-xs text-muted-foreground/80 font-medium">
+                {progress < 100 ? `Uploading ${Math.round(progress)}%` : isAnalyzing ? "Analyzing with AI…" : "Ready to analyze"}
               </span>
               {isAnalyzing && (
-                <span className="text-[11px] text-accent flex items-center gap-1">
-                  <Loader2 className="size-3 animate-spin" />
+                <span className="text-xs text-accent font-bold flex items-center gap-1.5">
+                  <Loader2 className="size-3.5 animate-spin" />
                   Processing
                 </span>
               )}
@@ -138,21 +136,21 @@ export function UploadZone({ onAnalyze, isAnalyzing }: Props) {
       )}
 
       {/* Features Grid */}
-      <div className="mt-6 grid grid-cols-3 gap-2">
-        <div className="glass-strong rounded-lg p-3 text-center text-xs hover:shadow-md transition-shadow">
-          <Zap className="size-4 text-accent mx-auto mb-1" />
-          <div className="text-muted-foreground">Fast</div>
-          <div className="text-[10px] text-muted-foreground/70">8-12 sec</div>
+      <div className="grid grid-cols-3 gap-3">
+        <div className="glass-strong rounded-xl p-4 text-center text-xs border border-border/30 hover:border-accent/40 hover:shadow-md transition-all group">
+          <Zap className="size-5 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" />
+          <div className="font-semibold text-muted-foreground">Fast</div>
+          <div className="text-[11px] text-muted-foreground/70 mt-1">8–12 sec</div>
         </div>
-        <div className="glass-strong rounded-lg p-3 text-center text-xs hover:shadow-md transition-shadow">
-          <Shield className="size-4 text-emerald-400 mx-auto mb-1" />
-          <div className="text-muted-foreground">Secure</div>
-          <div className="text-[10px] text-muted-foreground/70">Encrypted</div>
+        <div className="glass-strong rounded-xl p-4 text-center text-xs border border-border/30 hover:border-emerald-500/40 hover:shadow-md transition-all group">
+          <Shield className="size-5 text-emerald-400 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+          <div className="font-semibold text-muted-foreground">Secure</div>
+          <div className="text-[11px] text-muted-foreground/70 mt-1">Encrypted</div>
         </div>
-        <div className="glass-strong rounded-lg p-3 text-center text-xs hover:shadow-md transition-shadow">
-          <Gauge className="size-4 text-blue-400 mx-auto mb-1" />
-          <div className="text-muted-foreground">Accurate</div>
-          <div className="text-[10px] text-muted-foreground/70">AI-Powered</div>
+        <div className="glass-strong rounded-xl p-4 text-center text-xs border border-border/30 hover:border-blue-500/40 hover:shadow-md transition-all group">
+          <Gauge className="size-5 text-blue-400 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+          <div className="font-semibold text-muted-foreground">Accurate</div>
+          <div className="text-[11px] text-muted-foreground/70 mt-1">AI-Powered</div>
         </div>
       </div>
     </div>

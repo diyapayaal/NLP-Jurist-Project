@@ -31,13 +31,13 @@ function StatCard({
   secondary?: string
 }) {
   return (
-    <div className="glass-strong rounded-xl p-4 hover-lift">
-      <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-wider">
-        <Icon className="size-4 text-accent" />
+    <div className="glass-strong rounded-xl p-4 hover:shadow-md transition-all border border-border/30 hover:border-accent/40 group">
+      <div className="flex items-center gap-2 text-xs text-muted-foreground/80 uppercase tracking-wider font-semibold">
+        <Icon className="size-4 text-accent group-hover:scale-110 transition-transform" />
         {label}
       </div>
       <div className={`mt-3 text-2xl font-bold ${accent ?? "text-foreground"}`}>{value}</div>
-      {secondary && <div className="text-xs text-muted-foreground mt-1">{secondary}</div>}
+      {secondary && <div className="text-xs text-muted-foreground/70 mt-1">{secondary}</div>}
     </div>
   );
 }
@@ -65,34 +65,32 @@ export function AnalysisResultsAdvanced({ data, className = "" }: AnalysisResult
   const deadline = formatDeadline(r.deadline as any);
 
   return (
-    <div className={`space-y-6 animate-slide-up ${className}`}>
+    <div className={`space-y-8 animate-slide-up ${className}`}>
       {/* Header Section */}
-      <div className="glass rounded-2xl p-6 border border-accent/20 hover-lift">
-        <div className="grid lg:grid-cols-[1fr_200px] gap-6 items-start">
+      <div className="glass rounded-2xl p-8 border border-border/40 hover:border-accent/30 hover:shadow-lg transition-all">
+        <div className="grid lg:grid-cols-[1fr_220px] gap-8 items-start">
           <div className="min-w-0">
-            <div className="flex items-center gap-3 mb-3">
-              <div>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-accent font-semibold bg-accent/20 px-2 py-1 rounded-full">
-                  Regulation Type
-                </span>
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-accent font-bold bg-accent/20 px-3 py-1.5 rounded-full">
+                Regulation Type
+              </span>
               <SeverityBadge severity={r.risk_level} />
             </div>
-            <h2 className="text-2xl lg:text-3xl font-bold text-foreground tracking-tight mb-2">{r.regulation_type}</h2>
-            <p className="text-sm text-muted-foreground leading-relaxed">{r.summary}</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground tracking-tight mb-3">{r.regulation_type}</h2>
+            <p className="text-sm text-muted-foreground/90 leading-relaxed">{r.summary}</p>
           </div>
 
           {/* Quick Stats */}
-          <div className="glass-strong rounded-xl p-4 border-l-2 border-accent/40">
-            <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-3">Deadline</div>
-            <div className="text-lg font-semibold text-accent">{deadline.label}</div>
-            <div className="text-xs text-muted-foreground mt-2">{deadline.days == null ? "" : `${deadline.days} days remaining`}</div>
+          <div className="glass-strong rounded-2xl p-6 border border-accent/30 bg-accent/5">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70 font-bold mb-3">Deadline</div>
+            <div className="text-xl font-bold text-accent mb-1">{deadline.label}</div>
+            <div className="text-xs text-muted-foreground/80 font-medium">{deadline.days == null ? "No fixed date" : `${deadline.days} days left`}</div>
           </div>
         </div>
       </div>
 
       {/* KPIs Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         <StatCard icon={Target} label="Alignment" value={`${alignmentScore}%`} accent="text-emerald-400" />
         <StatCard icon={AlertTriangle} label="Critical Gaps" value={criticalGaps} accent="text-red-400" />
         <StatCard icon={Flag} label="High Gaps" value={highGaps} accent="text-orange-400" />

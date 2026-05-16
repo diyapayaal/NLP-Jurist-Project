@@ -4,7 +4,7 @@ import { AppShell } from "@/components/layout/AppShell";
 import { UploadZone } from "@/components/analyze/UploadZone";
 import { AnalysisResultsAdvanced } from "@/components/analyze/AnalysisResultsAdvanced";
 import type { AnalysisResponse } from "@/lib/mock-data";
-import { Loader2, AlertCircle } from "lucide-react";
+import { Loader2, AlertCircle, Zap } from "lucide-react";
 
 export const Route = createFileRoute("/analyze")({
   component: Analyze,
@@ -59,39 +59,39 @@ function Analyze() {
           
           {/* Error Message */}
           {error && (
-            <div className="glass rounded-xl p-4 border border-red-500/30 bg-red-500/5">
-              <div className="flex items-start gap-3">
-                <AlertCircle className="size-4 text-red-400 mt-0.5 flex-shrink-0" />
+            <div className="glass-strong rounded-2xl p-5 border border-red-500/40 bg-red-500/10 animate-slide-up">
+              <div className="flex items-start gap-4">
+                <AlertCircle className="size-5 text-red-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <div className="text-xs font-medium text-red-400">Analysis Failed</div>
-                  <p className="text-xs text-red-300/80 mt-1">{error}</p>
+                  <div className="text-sm font-bold text-red-400">Analysis Failed</div>
+                  <p className="text-sm text-red-300/90 mt-1.5 leading-relaxed">{error}</p>
                 </div>
               </div>
             </div>
           )}
 
           {/* Info Box */}
-          <div className="glass rounded-xl p-4">
-            <div className="space-y-3">
+          <div className="glass rounded-2xl p-6 border border-border/40 hover:border-accent/30 transition-all">
+            <div className="space-y-4">
               <div>
-                <div className="text-xs uppercase tracking-[0.18em] text-accent font-semibold">How it works</div>
+                <div className="text-xs uppercase tracking-[0.2em] text-accent font-bold">How it works</div>
               </div>
-              <ol className="space-y-2 text-xs text-muted-foreground">
-                <li className="flex gap-2">
-                  <span className="font-bold text-accent flex-shrink-0">1.</span>
-                  <span>Upload RBI regulation PDF</span>
+              <ol className="space-y-3 text-xs text-muted-foreground/90">
+                <li className="flex gap-3">
+                  <span className="font-bold text-accent flex-shrink-0 bg-accent/20 w-6 h-6 rounded-full flex items-center justify-center text-[10px]">1</span>
+                  <span className="pt-0.5">Upload RBI regulation PDF</span>
                 </li>
-                <li className="flex gap-2">
-                  <span className="font-bold text-accent flex-shrink-0">2.</span>
-                  <span>AI analyzes regulation requirements</span>
+                <li className="flex gap-3">
+                  <span className="font-bold text-accent flex-shrink-0 bg-accent/20 w-6 h-6 rounded-full flex items-center justify-center text-[10px]">2</span>
+                  <span className="pt-0.5">AI analyzes regulation requirements</span>
                 </li>
-                <li className="flex gap-2">
-                  <span className="font-bold text-accent flex-shrink-0">3.</span>
-                  <span>Cross-checks against your policies</span>
+                <li className="flex gap-3">
+                  <span className="font-bold text-accent flex-shrink-0 bg-accent/20 w-6 h-6 rounded-full flex items-center justify-center text-[10px]">3</span>
+                  <span className="pt-0.5">Cross-checks against your policies</span>
                 </li>
-                <li className="flex gap-2">
-                  <span className="font-bold text-accent flex-shrink-0">4.</span>
-                  <span>Gaps & remediation surfaced</span>
+                <li className="flex gap-3">
+                  <span className="font-bold text-accent flex-shrink-0 bg-accent/20 w-6 h-6 rounded-full flex items-center justify-center text-[10px]">4</span>
+                  <span className="pt-0.5">Gaps & remediation surfaced</span>
                 </li>
               </ol>
             </div>
@@ -101,11 +101,31 @@ function Analyze() {
         {/* Main Content - Results */}
         <div className="min-w-0">
           {loading ? (
-            <div className="glass rounded-2xl p-16 flex flex-col items-center justify-center gap-4">
-              <Loader2 className="size-12 text-accent animate-spin" />
-              <div className="text-center">
-                <div className="text-base font-medium text-foreground">Running deep compliance analysis…</div>
-                <div className="text-sm text-muted-foreground mt-2">This usually takes 8–12 seconds</div>
+            <div className="glass-strong rounded-2xl p-12 flex flex-col items-center justify-center gap-8 border border-accent/20 animate-slide-up">
+              <div className="flex flex-col items-center gap-6">
+                <div className="size-20 rounded-2xl bg-gradient-primary/20 grid place-items-center">
+                  <Loader2 className="size-10 text-accent animate-spin" />
+                </div>
+                <div className="text-center space-y-2">
+                  <div className="text-xl font-bold text-foreground flex items-center justify-center gap-2">
+                    <Zap className="size-5 text-accent" />
+                    Analyzing with AI…
+                  </div>
+                  <div className="text-sm text-muted-foreground/90">
+                    Deep compliance analysis in progress
+                  </div>
+                  <div className="text-xs text-muted-foreground/70 mt-3">
+                    Typical duration: 8–12 seconds
+                  </div>
+                </div>
+              </div>
+              <div className="w-full max-w-xs">
+                <div className="h-1 rounded-full bg-muted/30 overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 shimmer"
+                    style={{ width: "100%" }}
+                  />
+                </div>
               </div>
             </div>
           ) : data ? (
